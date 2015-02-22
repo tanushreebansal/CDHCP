@@ -33,9 +33,6 @@ public class DHCPClient
 	private static byte[] clientMAC = new byte[6];
 	private static DatagramSocket socket = null;
 	
-	
-	
-	
 	/*Constructor*/
 	public DHCPClient() 
 	{
@@ -106,9 +103,7 @@ public class DHCPClient
 					System.exit(0);
 				}
 			
-			
 				System.out.println("DHCP offer: " + Arrays.toString(offer.getData()));
-			
 			
 				//Sending DHCP request from client side
 				byte[] serverIP = new byte[4];
@@ -185,10 +180,7 @@ public class DHCPClient
 
 	public static void main(String[] args) throws IOException
 	{
-		
 		 new DHCPClient();
-		
-
 	}
 
 	/**
@@ -220,7 +212,6 @@ public class DHCPClient
 	*/	
 	public static void printMacAddress() 
 	{
-		
 			byte[] mac;
 			try {
 				mac = getMacAddress();
@@ -232,8 +223,6 @@ public class DHCPClient
 					e.printStackTrace();
 			}
 		}
-	
-	
 
 	/**
 	* getUserInput(): get the parameters needed by the client as console input
@@ -245,7 +234,6 @@ public class DHCPClient
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("Enter the type of message to be sent: \n A for DHCPDISCOVER \n B for DHCPRELEASE ");
 		String clientOp = br.readLine();
-		
 		if(clientOp.compareToIgnoreCase("A") == 0)
 		{
 			System.out.println("1 for IP Request \n 2 for Subnet Request \n 3 for IP and Subnet Request");
