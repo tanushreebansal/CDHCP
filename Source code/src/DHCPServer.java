@@ -2,7 +2,6 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-
 /**
  * This class represents a C-DHCP server. 
  * @author Tanushree & Mrunal
@@ -26,7 +25,6 @@ public class DHCPServer extends Thread
 	public static final int DHCPRELEASE = 7;
 	public static final int IP_LEASE_TIME_IDENTIFIER = 51;
 	
-	
 	private static final int MAX_BUFFER_SIZE = 1024; 
 	private int listenPort = 1067;
 	
@@ -37,7 +35,6 @@ public class DHCPServer extends Thread
 	private static String subnet1,subnet2,s_ip;//The C-DHCP server is initialized with 2 subnets.
 	private static String CMD;
 	private static DatagramSocket socket = null;
-	
 	
 	/*Constructor*/
 	public DHCPServer() 
@@ -63,7 +60,7 @@ public class DHCPServer extends Thread
 		} 
 		catch(IOException ioe) 
 		{
-			System.out.println("Can‘t read from file");
+			System.out.println("Canâ€˜t read from file");
 		}
 
 		//The first ip address in ipPool is assigned to the server.
@@ -81,8 +78,6 @@ public class DHCPServer extends Thread
 		 {
 			e2.printStackTrace();
 		 }
-		 
-		
 		
 			try 
 			{
@@ -107,15 +102,12 @@ public class DHCPServer extends Thread
 	            {
 	            	e.printStackTrace();
 	            }
-				
-				
-				
+			
 				final byte[] firstMsg= p.getData();
 				final InetAddress clientAddr=p.getAddress();
 							
 				if(p.getData()[36] == DHCPDISCOVER || p.getData()[36] == DHCPRELEASE)
 				{
-					
 						Runnable t1 = new Runnable()
 						{
 							public void run()
@@ -132,7 +124,6 @@ public class DHCPServer extends Thread
 								
 							}
 						};
-						
 						Thread offer = new Thread(t1);
 						offer.start();
 				}
@@ -156,7 +147,6 @@ public class DHCPServer extends Thread
 					
 					Thread ack = new Thread(t2);
 					ack.start();
-				
 				}
 			}	
 		}
