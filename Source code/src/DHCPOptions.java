@@ -7,7 +7,6 @@ import java.util.Hashtable;
  * @version 1.0
  */
 
-
 public class DHCPOptions 
 {
 	private byte[] magicCookie;//Holds the values 0x63,0x82,0x53,0x63 known as Magic Cookie.This the first 4 octets of C-DHCP options field.
@@ -32,7 +31,6 @@ public class DHCPOptions
 		return options.get(optionID);
 	}
 	
-	
 	/**
 	* setOption method inserts a option into the options Hash Table using optionID as key and option as value.
 	* @param optionID , option
@@ -41,7 +39,6 @@ public class DHCPOptions
 	{
 		options.put(optionID, option);
 	}
-	
 	
 	/**
 	* getOptionData returns the option data excluding the option ID and option length in bytes.
@@ -54,7 +51,6 @@ public class DHCPOptions
 		byte[] optionData = new byte[option.length-2];
 		for (int i=0; i < optionData.length; i++)  
 			optionData[i] = option[2+i];
-		
 		return optionData;
 	}
 	
@@ -96,7 +92,6 @@ public class DHCPOptions
 		System.out.println(output);
 	}
 	
-	
 	/**
 	* printOptions() prints all the options stored in the hash table.
 	*/
@@ -107,7 +102,6 @@ public class DHCPOptions
 			printOption(option[0]);
 		}
 	}
-	
 	
 	
 	/**
