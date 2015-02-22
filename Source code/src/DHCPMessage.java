@@ -32,7 +32,6 @@ public class DHCPMessage
 
 	private static final int WIRELESS = 1;
 	
-	
 	//DHCP Message Types
 	public static final int DHCPDISCOVER = 1;
 	public static final int DHCPOFFER = 2;
@@ -46,7 +45,6 @@ public class DHCPMessage
 	public static final int DHCPMESSAGETYPE = 53;
 	public static final int SUBNET = 1;
 
-	
 	/*Constructor*/
 	public DHCPMessage() 
 	{
@@ -56,8 +54,6 @@ public class DHCPMessage
 		cHAddr = new byte[16];
 		options = new DHCPOptions();
 	}
-	
-	
 	
 	/**
 	* discoverMsg() : Discovery message sent by client.
@@ -98,8 +94,6 @@ public class DHCPMessage
 		return this.convertToByteArray();//Convert message object to a byte array.
 	}
 	
-	
-	
 	/**
 	* releaseMsg() : Release message sent by client.
 	* @param clientMacAddr 
@@ -124,13 +118,10 @@ public class DHCPMessage
 			e.getMessage();
 		}
 		
-		
 		//Sets the ip address allocated to client and server ip in the DHCPRELEASE message. 
 		options.setOptionData(DHCPMESSAGETYPE, new byte[]{(byte)DHCPRELEASE});//adding DHCP message of DHCPRELEASE to options field.
 		return this.convertToByteArray();//Convert message object to a byte array.
 	}
-	
-	
 	
 	/**
 	 * Converts a DHCPMessage object to a byte array.
@@ -146,10 +137,10 @@ public class DHCPMessage
 		   mbz = 1 byte
 		   xid= 4 bytes
 		   secs = 2 bytes 
-	       flags = 2 bytes
-	       cIAddr = 4 bytes
-      	   yIAddr = 4 bytes
-	       sIAddr = 4 bytes
+	           flags = 2 bytes
+	           cIAddr = 4 bytes
+      	           yIAddr = 4 bytes
+	           sIAddr = 4 bytes
 		   cHAddr = 6 bytes
 		   
 		   Total = 30 bytes		 */		
@@ -174,7 +165,6 @@ public class DHCPMessage
       
 		return msg;
 	}
-
 	
 	/*Getter and setter methods*/
 	
@@ -320,7 +310,6 @@ public class DHCPMessage
 		   return sb.toString();
 	}
 
-
 	/**
 	* This method converts a hex string to a byte array.
 	* @return data byte array of hex string.
@@ -336,8 +325,6 @@ public class DHCPMessage
 	    return data;
 	}
 
-	
-	
 	/**
 	* setFields method sets ciaddr and siaddr fields of DHCP Message.
 	* @exception IOException On input error.
@@ -366,7 +353,6 @@ public class DHCPMessage
 		}
 		
 	}
-	
 	
 	public String toString() 
 	{
